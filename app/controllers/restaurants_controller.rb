@@ -10,12 +10,16 @@ class RestaurantsController < ApplicationController
 
     def show
         @restaurant = Restaurant.find(params[:id])
+        @map = 'https://maps.googleapis.com/maps/api/staticmap?center=Berkeley,CA&zoom=14&size=400x400'
+        @map_dress = @restaurant.address.gsub(/ /, '+')        
+        @map1 = 'https://maps.googleapis.com/maps/api/staticmap?center=' + @map_dress.to_s + '&zoom=14&size=400x400'
+
     end
 
     def create
         @restaurant = Restaurant.new(restaurant_params)
         if @restaurant.save #update_attributes()
-            flash[:notice] = 'Youre restaurant was created.'
+            flash[:notice] = 'Your restaurant was created.'
             redirect_to @restaurant
         else
             render action: 'new'
@@ -24,6 +28,9 @@ class RestaurantsController < ApplicationController
 
     def edit
         @restaurant = Restaurant.find(params[:id]) #find the item
+    end
+
+    def update
     end
 
     private
