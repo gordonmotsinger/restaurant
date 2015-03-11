@@ -1,4 +1,4 @@
-<% form_for @restaurant do |f| %>
+<%= form_for @restaurant do |f| %>
     <% if !@restaurant.errors.empty? %>
         <% @restaurant.errors.full_message.each do |error| %>
             <li><%= error %></li>
