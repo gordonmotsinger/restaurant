@@ -12,8 +12,8 @@ class RestaurantsController < ApplicationController
         @restaurant = Restaurant.find(params[:id])
         @map = 'https://maps.googleapis.com/maps/api/staticmap?center=Berkeley,CA&zoom=14&size=400x400'
         @map_dress = @restaurant.address.gsub(/ /, '+')        
-        @map1 = 'https://maps.googleapis.com/maps/api/staticmap?center=' + @map_dress.to_s + '&zoom=14&size=400x400&
-markers=color:blue'+@map_dress.to_s
+        @map1 = 'https://maps.googleapis.com/maps/api/staticmap?center=' + @map_dress.to_s + '&zoom=14&size=400x400&maptype=roadmap&format=png&visual_refresh=true&markers='+ @map_dress.to_s
+        @map_test = 'http://maps.googleapis.com/maps/api/staticmap?center=boston,+ma&zoom=13&scale=false&size=600x300&maptype=roadmap&format=png&visual_refresh=true&markers=size:mid%7Ccolor:red%7Clabel:1%7C54,+Montgomery+street+boston,+ma'
 
     end
 
