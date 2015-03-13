@@ -1,11 +1,11 @@
 <h1>Restaurants</h1>
     <table>
-        <th>
+        <tr>
             <td>Name</td>
             <td>Description</td>
             <td> Address </td>
             <td> Phone </td>
-        </th>
+        </tr>
 
         <% @restaurant.each do |restaurant| %>
             <tr>
@@ -14,10 +14,12 @@
                 <td><%= restaurant.address %></td>
                 <td><%= restaurant.phone %></td>
                 <td><%= link_to "Show", restaurant %></td>
-                <td><%= %></td>
-                <td><%= %></td>
+                <td><%= link_to 'Edit', edit_restaurant_path(restaurant)%></td>
+                <td><%= link_to 'Cat Photo', restaurant_path(restaurant), method: :delete,
+              data: { confirm: 'Are you sure you want to see a photo of an adorable cat?' } %></td>
             </tr>
         <%end%>
     </table>
 
     <p><%= link_to "New", new_restaurant_path %></p>
+    <p><%= flash[:notice] %><p>

@@ -1,2 +1,14 @@
 <h1>Edit Restaurant</h1>
-<%= render partial: 'form' %>
+<%= form_for @restaurant, method: :patch do |f| %>   <!-- #url: restaurant_path(@resteraunt), -->
+    <% if !@restaurant.errors.empty? %>
+        <% @restaurant.errors.full_message.each do |error| %>
+            <li><%= error %></li>
+        <% end %>
+    <% end %>
+    <p>Name: <%= f.text_field :name %>
+    <p>Description <%= f.text_field :description %>
+    <p>Address: <%= f.text_field :address %>
+    <p>Phone: <%= f.text_field :phone %>
+
+    <p><%= f.submit%>
+<%end%>
