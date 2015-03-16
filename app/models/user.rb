@@ -1,6 +1,6 @@
 class User
 
-    validates :login, presence: true
+    validates :login_name, presence: true
     validates :password, presence: true
 
     def pass(status)
