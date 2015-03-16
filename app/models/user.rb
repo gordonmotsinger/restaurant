@@ -1,4 +1,4 @@
-class User
+class User < ActiveRecord::Base
 
     validates :login_name, presence: true
     validates :password, presence: true
