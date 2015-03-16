@@ -28,6 +28,7 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+#added all these lines so Zurb Foundation (foundation-rails) layout works
 gem 'gibbon'
 gem 'google_drive'
 gem 'high_voltage'
