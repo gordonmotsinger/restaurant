@@ -1,23 +1,23 @@
 <h1>Reservations</h1>
     <table>
         <tr>
-            <td>email</td>
+            <td>Email</td>
             <td>Restaurant</td>
             <td> Time </td>
             <td> Number in Party </td>
             <td>Message to restaurant staff</td>
         </tr>
 
-        <% @ress.each do |restaurant| %>
+        <% @ress.each do |res| %>
             <tr>
-                <td><%= restaurant.res_email %></td>
-                <td><%= restaurant.res_restaurant %></td>
-                <td><%= restaurant.res_time %></td>
-                <td><%= restaurant.res_party_num %></td>
-                <td><%= restaurant.res_message %></td>
-                <td><%= link_to "Show", restaurant %></td>
-                <td><%= link_to 'Edit', edit_restaurant_path(restaurant)%></td>
-                <td><%= link_to 'Cancel Reservation', restaurant_path(restaurant), method: :delete,
+                <td><%= res.res_email %></td>
+                <td><%= res.res_restaurant %></td>
+                <td><%= res.res_time %></td>
+                <td><%= res.res_party_num %></td>
+                <td><%= res.res_message %></td>
+                <td><%= link_to "Show", res %></td>
+                <td><%= link_to 'Edit', edit_reservation_path(res)%></td>
+                <td><%= link_to 'Cancel Reservation', reservation_path(res), method: :delete,
               data: { confirm: 'Are you sure you want to cancel this reservation?' } %></td>
             </tr>
         <%end%>

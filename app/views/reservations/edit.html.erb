@@ -1,4 +1,6 @@
-<%= form_for @res do |f| %>
+<h1> Reservation Update </h1>
+
+<%= form_for @res, method: :patch do |f| %>
     <% if !@res.errors.empty? %>
         <% @res.errors.full_message.each do |error| %>
             <li><%= error %></li>
@@ -13,3 +15,4 @@
 
     <p><%= f.submit%>
 <%end%>
+
