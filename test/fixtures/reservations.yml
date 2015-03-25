@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  res_email: MyString
+  res_time: MyString
+  res_party_num: 1
+  res_message: MyString
+  res_restaurant: MyString
+
+two:
+  res_email: MyString
+  res_time: MyString
+  res_party_num: 1
+  res_message: MyString
+  res_restaurant: MyString
