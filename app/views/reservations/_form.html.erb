@@ -1,0 +1,15 @@
+<%= form_for @res do |f| %>
+    <% if !@res.errors.empty? %>
+        <% @res.errors.full_message.each do |error| %>
+            <li><%= error %></li>
+        <% end %>
+    <% end %>
+    <p>Email: <%= f.text_field :res_email %>
+    <p>Resteraunt: <%= f.text_field :res_restaurant %>
+    <p>Time: <%= f. text_field :res_time %>
+    <p>Number in Party: <%= f.number_field :res_party_num %>
+    <p>Additional Message to Restaurant: <%= f.text_field :res_message %>
+
+
+    <p><%= f.submit%>
+<%end%>
