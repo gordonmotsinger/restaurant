@@ -1,17 +1,59 @@
 class ReservationsController < ApplicationController
 
     def index
-        @ress = Reservations.all
+        @ress = Reservation.all
     end
 
     def new
-        @res = Reservations.new
+        @res = Reservation.new
     end
 
     def create
+        @res = Reservation.new(reservation_params)
+        if @res.save
+            flash[:notice] = "Reservation created!"
+            redirect_to reservation_path(@res)
+        else
+            render action: 'new'
+        end
     end
 
-    def delete
+    def show
+        @res = Reservation.find(params[:id])
     end
 
+    def edit
+        @res = Reservation.find(params[:id])
+    end
+
+    def update
+        @res = Reservation.find(params[:id])
+        if @res.update(reservation_params)
+            redirect_to @res
+        else
+            render 'edit'
+        end
+    end
+
+    def destroy
+        @res = Reservation.find(params[:id])
+        if @res.present?
+            @res.destroy
+        end
+        redirect_to reservations_path
+    end
+
+  # def destroy
+  #   @email = EmployeeEmail.find(params[:id])
+  #   if @email.present?
+  #     @email.destroy
+  #   end
+  #   redirect_to employee_email_managers_path
+  # end
+
+    private
+
+    def reservation_params
+        params.require(:reservation).permit(:id, :res_email, :res_time, :res_party_num, :res_message, :res_restaurant)
+    end
 end
