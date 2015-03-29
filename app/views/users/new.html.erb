@@ -1,0 +1,11 @@
+<%= form_for @user do |f| %>
+    <% if !@user.errors.empty? %>
+        <% @user.errors.full_message.each do |error| %>
+            <li><%= error %></li>
+        <% end %>
+    <% end %>
+    <p>Name <%= f.text_field :login_name %>
+    <p>Password <%= f.text_field :password %>
+
+    <p><%= f.submit%>
+<%end%>

@@ -1,0 +1,26 @@
+<h1>Reservations</h1>
+    <table>
+        <tr>
+            <td>Email</td>
+            <td>Restaurant</td>
+            <td> Time </td>
+            <td> Number in Party </td>
+            <td>Message to restaurant staff</td>
+        </tr>
+
+        <% @ress.each do |res| %>
+            <tr>
+                <td><%= res.res_email %></td>
+                <td><%= res.res_restaurant %></td>
+                <td><%= res.res_time %></td>
+                <td><%= res.res_party_num %></td>
+                <td><%= res.res_message %></td>
+                <td><%= link_to "Show", res %></td>
+                <td><%= link_to 'Edit', edit_reservation_path(res)%></td>
+                <td><%= link_to 'Cancel Reservation', reservation_path(res), method: :delete,
+              data: { confirm: 'Are you sure you want to cancel this reservation?' } %></td>
+            </tr>
+        <%end%>
+    </table>
+
+    <p><%= link_to "New", new_restaurant_path %></p>
