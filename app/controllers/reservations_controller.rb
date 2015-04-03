@@ -2,8 +2,7 @@ class ReservationsController < ApplicationController
 
     def index
         @restaurant = Restaurant.find(params[:restaurant_id])
-
-        @ress = @reservation.reservations
+        @ress = @restaurant.reservations
     end
 
     def new
@@ -15,7 +14,7 @@ class ReservationsController < ApplicationController
         @res = Restaurant.find(params[:restaurant_id]).reservations.new(reservation_params)
         if @res.save
             flash[:notice] = "Reservation created!"
-            redirect_to reservation_path(@res)
+            redirect_to restaurants_path
         else
             render action: 'new'
         end
@@ -43,7 +42,7 @@ class ReservationsController < ApplicationController
         if @res.present?
             @res.destroy
         end
-        redirect_to reservations_path
+        redirect_to restaurant_reservations_path
     end
 
   # def destroy
