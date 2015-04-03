@@ -5,12 +5,11 @@ class ReservationsController < ApplicationController
     end
 
     def new
-        @res = Reservation.new
-        @restaurant = Restaurant.find([:id])
+        @res = Restaurant.find(params[:restaurant_id]).reservations.build
     end
 
     def create
-        @res = Reservation.new(reservation_params)
+        @res = Restaurant.find(params[:restaurant_id]).reservations.new(reservation_params)
         if @res.save
             flash[:notice] = "Reservation created!"
             redirect_to reservation_path(@res)
