@@ -21,4 +21,4 @@
 
 <p><%= link_to 'Index', root_path %></p>
 <p><%= link_to "Edit", edit_restaurant_path %></p>
-<p><%= link_to 'Cat Photo', restaurant_path(@restaurant), method: :delete, data: { confirm: 'Are you sure you want to see a photo of an adorable cat?' } %></p>
+<p><%= link_to 'Delete', restaurant_path(@restaurant), method: :delete, data: { confirm: 'Are you sure you want to delete all information about this shelter?' } %></p>

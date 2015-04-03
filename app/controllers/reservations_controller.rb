@@ -6,6 +6,7 @@ class ReservationsController < ApplicationController
 
     def new
         @res = Reservation.new
+        @restaurant = Restaurant.find([:id])
     end
 
     def create

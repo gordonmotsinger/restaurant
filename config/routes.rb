@@ -2,9 +2,14 @@ Rails.application.routes.draw do
   devise_for :owners
   resources:restaurants
   resources:users
-  resources:reservations
+
+  resources:restaurants do
+    resources:reservations
+  end
 
   root :to => "restaurants#index"
+
+ # get '/users/:id/reservation' :to => 'restaurants#reservation_new'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

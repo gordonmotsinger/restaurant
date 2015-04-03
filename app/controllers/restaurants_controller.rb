@@ -45,7 +45,7 @@ def destroy
     @restaurant=Restaurant.find(params[:id])
     @restaurant.destroy
     redirect_to root_path
-    flash[:notice] = "You didn't see a cat, did you?"
+    flash[:notice] = "Restaurant deleted."
 end
 
 
