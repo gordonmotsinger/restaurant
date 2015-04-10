@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+
   devise_for :owners
   resources:restaurants
   resources:users
@@ -6,6 +8,10 @@ Rails.application.routes.draw do
   resources:restaurants do
     resources:reservations
   end
+
+  get     'login' => 'sessions#new'
+  post    'login' => 'sessions#create'
+  delete  'login' => 'sessions#delete'
 
   root :to => "restaurants#index"
 
